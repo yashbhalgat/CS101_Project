@@ -1,0 +1,3 @@
+serial number,person name,std code,person phone no.,person street address,city,state,profession,company name,company phone no.,company address
+1; Sarthak Daga; 0141; 2620386; B-63A,Bal Marg, Yash Path, Tilak Nagar; Jaipur; Rajasthan; Student; IIT Bombay; 23432522; Powai
+2; Yash Bhalgat; 011; 23423233; A-32,Ram Marg,Laxman Nagar; Pune; Mahrashtra; Student; IIT Bombay; 23432522; Powai

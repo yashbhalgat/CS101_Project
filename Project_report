@@ -1,0 +1,120 @@
+/*  GROUP MEMBERS:	(i)Yash Sanjay Bhalgat  (ii)Sarthak Daga  */
+
+/*  Project Name:   "Management of a Telephone Directory"   */
+
+1) OBJECTIVE:      To handle a telephone directory similar to a human will do, but in a more efficient way and helpfully to the USER.
+
+2) How to run the code:-
+	  (i) First increase the size of the terminal to unlimited lines. For this Edit->Profile preferences->Scrolling->scroll back(unlimited).
+	  (ii) All the files of the program should be kept in the same directory.
+	  (iii) Compile with g++/s++ and then do ./a.out . The ifstream objects are already linked to the files.
+	  (iv) Then run the commands as instructed by the program :).
+
+
+3) Inputs:-
+		Sample input 1: 1
+						1
+						13
+		Sample input 2: 1
+						2
+						Doctor
+						VARAD PINGALE
+						PINGALE HOSPITAL
+						23458912
+						9345231253
+						Ram Marg, Shivaji Chowk
+						JAIPUR
+						RAJASTHAN
+						1
+						13
+		Sample input 3: 1
+						3
+						1
+						VARAD PINGALE
+						6
+						Bal Marg, Tilak Nagar
+						13
+		Sample input 4: 1
+						5
+						PINGALE HOSPITAL
+						13
+		Sample input 5: 1
+						8
+						13
+		Sample input 6: 1
+						10
+						Doctor
+						13
+		Sample input 7: 1
+						12
+						1
+						VARAD PINGALE
+						y
+						13
+					
+4) Outputs:- 
+		Corresponding output 1: Shows the complete directory in the console.
+		Corresponding output 2: Changed details added to the file "telephone_directory". (The member is added in the diectory.)
+		Corresponding output 3: Changed details modified to the file "telephone_directory". (Changes done in the directory.)
+		Corresponding output 4: Shows all the details of the company in the console.
+		Corresponding output 5: Directory sorted by person_name is shown in the console and the sorted directory is stored in the file- 
+								"personname_sorted_drectory".
+		Corresponding output 6: Shows all the members of the given profession (doctor) in the console.
+		Corresponding output 7: The above person has been removed from the file.
+		
+5) Algorithm/Procedure:-
+		14-15 functions have been defined to access the directory and handle it as the user	wants to.
+		Firstly, options are declared by calling function options().
+		If '1' is selected, the data in the directory is fed into the link-list using function feed().
+		Sanity checks are put at appropriate places to avoid special cases.
+		Then USER is asked for choice of operation to be performed.
+		Input is passed to a "switch case".
+		In the add function,
+			the USER is asked to input the attributes,
+			the member is added at the end of the list and then it is sorted to put it appropriate location.
+		Similarly, the modify function asks the USER for name.
+			the person or company is searched and then required attributes are changed.
+		There are more options of searching directory by person_name or company_name.
+			The linked-list is searched for the member and then the atrributes are displayed.
+		There is an option of listing members by city or profession.
+			Then according to USER's input, all members of the corresponding category are shown.
+		The final option is of removing a member.
+			This is done by the function remove().
+		The option of exit is done by the function exit().
+			This terminates the program.
+				
+6) Major Classes and Functions: 
+		(i) Classes are element, node, list:
+			a) element:- Stores the various attributes of a person or company, namely:person_name, company_name, profession, street address,
+						                                                              phone_no(residential and official), city, state.
+			b) node:- Has 3 parts: data(type- element), next(type-node*), sortnext(type- node*).
+						data- stores all the attributes of a person or company.
+						next- used to make a linked list of the stored data.
+						sortnext- used to make a "sorted" linked list of the stored data.
+			c) list:- A class having all the important functions, doing the job of making and editing the linked list.
+		
+		(ii) Functions:
+			a) feed():- feeds the originally present data in the tel-directory file into the linked list.
+			b) show():- Shows the directory to the USER in a proper manner.
+			c) options():- Displays the options for the USER at the start of the program.
+			d) add():- adds a new element to the directory which then gets sorted by the profession. 
+			e) modify():- modifies/changes the attributes of a person or company.
+			f) remove():- removes any member from the directory.
+			
+			g) searchbypersonname(bool, node*):- It searches the person and displays its attributes to the USER.
+			h) searchbycompanyname(bool, node*):- It searches the person and displays its attributes to the USER.
+			i) searchbypersonphone(bool):- searches by residential phone no. and displays the atrributes corresponding to it.
+			j) searchbycompanyphone(bool):- searches by official phone no. and displays the atrributes corresponding to it.
+			
+			k) sortbypersonname():- sorts the entire directory by person's name and puts it in a file "personname_sorted_directory".
+			l) sortbycompanyname():- sorts the entire directory by company's name and puts it in a file "companyname_sorted_directory".
+			m) sortbyprofession():- this is used in the function add().		
+			
+			n) listbycity():- lists/shows the USER, the details of all the persons or companies in the given city.
+			o) listbyprofession():- lists/shows the USER, the details of all the persons or companies of the given profession.
+			
+7) SPECIAL FEATURES of the project:-
+	  (i) Usage of link list and (MOST IMP) index sorting of a link list!!!
+	      The 'node' is divided into 3 parts:- data, next and sortnext.
+	      "sortnext" has special use of sorting the linklist efficiently.
+	  (ii) The program is made up of MANY FUNCTIONS and every possible operation is performed using functions.
